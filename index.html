@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+
+    <style>
+        #girl {
+            background: url('./girl.svg');
+            height: 386px;
+            width: 230px;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+    <div id="girl"></div>
+
+
+    <script>
+        var girl = document.getElementById("girl");
+        var totalFrames = 8;
+        var frameWidth = 230;
+        var speed = 2;
+
+        var walkEase = new SteppedEase(totalFrames)
+        var finalPosition = -(frameWidth * totalFrames) + 'px 0px';
+
+        var walkTL = new TimelineMax()
+        walkTL.to(girl, speed, {
+            backgroundPosition: finalPosition,
+            ease: walkEase,
+            repeat: -1
+        })
+    </script>
+</body>
+
+</html>
